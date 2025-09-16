@@ -1,0 +1,76 @@
+.skills-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px; 
+  height: 500px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  animation: orbit-animation 10s infinite linear;
+}
+
+.orbit {
+  position: absolute;
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+}
+
+.orbit img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; 
+}
+
+/* Positioning the orbits in a circular pattern */
+.orbit1 { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+.orbit2 { transform: rotate(40deg) translateX(200px) rotate(-40deg); }
+.orbit3 { transform: rotate(80deg) translateX(200px) rotate(-80deg); }
+.orbit4 { transform: rotate(120deg) translateX(200px) rotate(-120deg); }
+.orbit5 { transform: rotate(160deg) translateX(200px) rotate(-160deg); }
+.orbit6 { transform: rotate(200deg) translateX(200px) rotate(-200deg); }
+.orbit7 { transform: rotate(240deg) translateX(200px) rotate(-240deg); }
+.orbit8 { transform: rotate(280deg) translateX(200px) rotate(-280deg); }
+.orbit9 { transform: rotate(320deg) translateX(200px) rotate(-320deg); }
+
+/* Adjust positions if necessary for different screen sizes */
+@media (max-width: 768px) {
+  .skills-orbit {
+    width: 300px; /* Reduced width */
+    height: 300px; /* Reduced height */
+  }
+
+  .orbit {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-orbit {
+    width: 200px; /* Further reduced width */
+    height: 200px; /* Further reduced height */
+  }
+
+  .orbit {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Adding animation to rotate */
+@keyframes orbit-animation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

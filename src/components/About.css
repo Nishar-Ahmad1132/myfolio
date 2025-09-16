@@ -1,0 +1,123 @@
+.about {
+  padding: 80px 0;
+  color: #fff;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.about-text-cnt {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.about-text {
+  flex: 2;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.separator {
+  border: 0.5px solid #66fcf1;
+  margin: 0 20px;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #66fcf1;
+}
+
+.about p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.btn {
+  background-color: #66fcf1;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #500c7c;
+}
+
+.about h2, .about p {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center;
+    gap: 20px; /* Reduce gap */
+  }
+
+  .about-text {
+    padding: 20px; /* Reduce padding on smaller screens */
+    width: 100%; /* Ensure text takes full width */
+  }
+
+  .separator {
+    margin: 0 auto; /* Center separator */
+  }
+
+  .about h2 {
+    font-size: 1.8rem; /* Slightly reduce heading size */
+  }
+
+  .about p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px; /* Smaller gap */
+  }
+
+  .about-text {
+    padding: 15px; /* Further reduce padding */
+    width: 100%; /* Ensure it fills the available space */
+  }
+
+  .about h2 {
+    font-size: 1.5rem; /* Smaller heading size */
+  }
+
+  .about p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
