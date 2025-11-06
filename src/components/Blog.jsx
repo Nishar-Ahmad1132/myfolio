@@ -19,7 +19,7 @@ const blogs = [
     date: "9 Sep, 2024",
     category: "Software Development",
     author: "Nishar Ahmad",
-    link: "http://34.227.148.51/post/diving-into-backend-development-essential-technologies-and-concepts",
+    link: "https://ahmadblog-backend.onrender.com/post/diving-into-backend-development-essential-technologies-and-concepts",
   },
   {
     title: "Front-End Development",
@@ -29,7 +29,7 @@ const blogs = [
     date: "9 Sep, 2024",
     category: "Software Development",
     author: "Nishar Ahmad",
-    link: "http://34.227.148.51/post/exploring-frontend-development-and-its-essential-technologies",
+    link: "https://ahmadblog-backend.onrender.com/post/-frontend-technology-in-mern-building-modern-web-experiences",
   },
 
   {
@@ -40,7 +40,7 @@ const blogs = [
     date: "9 Sep, 2024",
     category: "Flutter Development",
     author: "Nishar Ahmad",
-    link: "http://34.227.148.51/post/building-a-content-driven-mobile-app-with-flutter-a-comprehensive-guide",
+    link: "https://ahmadblog-backend.onrender.com/post/building-a-content-driven-mobile-app-with-flutter-a-comprehensive-guide",
   },
   {
     title: "MERN STACK",
@@ -49,7 +49,7 @@ const blogs = [
     date: "9 Sep, 2024",
     category: "Software Development",
     author: "Nishar Ahmad",
-    link: "http://34.227.148.51/post/understanding-the-mern-stack-a-comprehensive-guide",
+    link: "https://ahmadblog-backend.onrender.com/post/understanding-the-mern-stack-a-comprehensive-guide",
   },
 ];
 

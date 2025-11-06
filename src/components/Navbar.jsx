@@ -92,7 +92,7 @@ const Navbar = () => {
       </ul>
 
       <a
-        href="http://34.227.148.51/"
+        href="https://ahmadblog-backend.onrender.com/"
         className="blog-web-btn"
         target="_blank"
         rel="noopener noreferrer"
