@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import hero_img from "../assets/Na5.jpeg";
-import "./Header.css";
 import { toast } from "react-toastify";
+import hero_img1 from "../assets/profileImage3.jpg";
+import "./Header.css";
 
-const fileUrl = process.env.PUBLIC_URL + "/Nishar_Ahmad_Resume.pdf";
+const fileUrl = process.env.PUBLIC_URL + "/Nishar_m.pdf";
 
 const Header = () => {
   const [text, setText] = useState("");
-  const fullText = "MERN Stack and Flutter Developer";
+  const fullText = "MERN Stack & Flutter Developer";
 
   useEffect(() => {
     let index = 0;
@@ -18,54 +18,50 @@ const Header = () => {
         setTimeout(() => {
           setText("MERN");
           index = 3;
-        }, 3000);
+        }, 2500);
       }
     }, 100);
     return () => clearInterval(interval);
   }, []);
 
   const openFileInNewTab = (url) => {
-    toast.success(
-      "Please fill contact form in contact section, I will send you.",
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      }
-    );
+    window.open(url, "_blank", "noopener,noreferrer");
+    toast.success("Resume opened in new tab!", {
+      position: "top-center",
+      autoClose: 2500,
+    });
   };
 
   return (
-    <header className="header">
-      <div className="header-cont">
-        <div className="header-content">
-          <h1>Hi, I'm Nishar Ahmad</h1>
-          <div className="header-intro-wrapper">
-            <div className="header-intro">{text}</div>
-          </div>
-          <p className="header-description">
-            I craft beautiful, responsive web and mobile applications that bring
-            ideas to life.
+    <section className="hero">
+      <div className="hero-container">
+        {/* LEFT SIDE */}
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Hi, I’m <span className="highlight">Nishar Ahmad</span>
+          </h1>
+          <h2 className="hero-subtitle">{text}</h2>
+          <p className="hero-description">
+            I build full-stack digital experiences with clean design and
+            efficient code. Passionate about bridging UI and logic through
+            modern web & mobile technologies.
           </p>
-          <div className="header-buttons">
-            <button
-              className="cta-btn"
-              onClick={() => openFileInNewTab(fileUrl)}
-            >
-              Download Resume
-            </button>
-          </div>
+          <button
+            className="hero-btn"
+            onClick={() => openFileInNewTab(fileUrl)}
+          >
+            View Resume
+          </button>
         </div>
-        <div className="header-image">
-          <img src={hero_img} alt="Profile" />
+
+        {/* RIGHT SIDE */}
+        <div className="hero-image-container">
+          <div className="image-card">
+            <img src={hero_img1} alt="Nishar Ahmad" className="hero-image" />
+          </div>
         </div>
       </div>
-    </header>
+    </section>
   );
 };
 

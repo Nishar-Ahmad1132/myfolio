@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import { toast } from "react-toastify";
-import "./Contact.css";
 import contactImage from "../assets/contact.jpg";
+import "./Contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -37,34 +37,35 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_4gsf7e5",
-        "template_imkj20g",
+        "service_s5ewgtq",
+        "template_w1cco3h",
         formData,
-        "aU7ahcaqW3Gg7kx3i"
+        "tkb-ZaIT3YoVty2pr"
       )
-      .then((response) => {
-        toast.success("Message sent successfully! Thanks for contacting us", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+      .then(() => {
+        // Send auto-reply
+        emailjs.send(
+          "service_s5ewgtq",
+          "template_vm8jm7n", // your new auto-reply template ID
+          formData,
+          "tkb-ZaIT3YoVty2pr"
+        );
+
+        toast.success(
+          "Message sent successfully! Check your inbox for confirmation.",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            theme: "light",
+          }
+        );
+
         setFormData({ from_name: "", email_id: "", message: "" });
-        setErrors({});
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("Error sending message. Please try again later.", {
           position: "top-center",
           autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "light",
         });
       });
