@@ -1,46 +1,61 @@
 import React from "react";
-import "./Education.css";
 
 const educationData = [
   {
     title:
-      "INDIAN INSTITUTE OF INFORMATION AND TECHNOLOGY, DESIGN AND MANUFACTURING, KURNOOL",
-    details: ["Computer Science and Engineering", "Nov 2022 - Apr 2026"],
-  },
-  {
-    title: "Flutter and Dart - The Complete Guide",
+      "Indian Institute of Information Technology, Design and Manufacturing (IIITDM), Kurnool",
     details: [
-      "Mobile App Developer",
-      <a
-        href="https://www.udemy.com/certificate/UC-89790232-c382-46e6-98fb-3b22b2a4efe6/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Click Here to See Certificate!
-      </a>,
+      "B.Tech in Computer Science and Engineering",
+      "November 2022 – June 2026",
     ],
   },
   {
-    title: "MERN Stack Developer",
+    title: "Intermediate (Class XII) – Science Stream",
     details: [
-      "Full-Stack Web Development",
-      "Specializing in MongoDB, Express, React, and Node.js",
+      "Uttar Pradesh Board of High School & Intermediate Education",
+      "Physics, Chemistry, Mathematics (PCM)",
+      "2018 – 2020",
+    ],
+  },
+  {
+    title: "High School (Class X)",
+    details: [
+      "Uttar Pradesh Board of High School & Intermediate Education",
+      "2016 – 2018",
     ],
   },
 ];
 
 const Education = () => {
   return (
-    <section className="education">
-      <div className="container">
-        <h2>Educational Experiences</h2>
-        <div className="education-content">
+    <section className="bg-[#141414] py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Heading */}
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#66fcf1] mb-14">
+          Education & Certifications
+        </h2>
+
+        {/* Timeline */}
+        <div className="relative border-l border-[#66fcf1]/30 pl-6 space-y-12">
           {educationData.map((item, index) => (
-            <div className="education-item" key={index}>
-              <h4>{item.title}</h4>
-              <ul>
+            <div
+              key={index}
+              className="relative bg-[#1e1e1e] rounded-2xl p-6 sm:p-8 shadow-lg"
+            >
+              {/* Timeline Dot */}
+              <span className="absolute -left-[38px] top-8 w-4 h-4 rounded-full bg-[#66fcf1]" />
+
+              {/* Title */}
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
+                {item.title}
+              </h3>
+
+              {/* Details */}
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
                 {item.details.map((detail, i) => (
-                  <li key={i}>{detail}</li>
+                  <li key={i} className="leading-relaxed">
+                    {detail}
+                  </li>
                 ))}
               </ul>
             </div>

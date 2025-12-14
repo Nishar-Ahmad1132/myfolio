@@ -1,6 +1,6 @@
 
 import React from "react";
-import profilePic from "../assets/Na7.jpeg";
+import profilePic from "../assets/profileImage3.jpg";
 import "./About_aside.css";
 
 import {

@@ -1,110 +1,153 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+// import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./Blog.css";
+
 import blog1 from "../assets/mern1.jpg";
 import blog2 from "../assets/ui_ux.jpg";
 import blog3 from "../assets/appD.jpg";
 import blog4 from "../assets/webD.webp";
+import blog5 from "../assets/webD1.jpg";
 
 const blogs = [
   {
     title: "Back-End Development",
-    description:
-      "Exploring Frontend Development and Its Essential Technologies.",
+    description: "Exploring backend development and essential technologies.",
     image: blog4,
     date: "9 Sep, 2024",
-    category: "Software Development",
     author: "Nishar Ahmad",
-    link: "https://ahmadblog-backend.onrender.com/post/diving-into-backend-development-essential-technologies-and-concepts",
+    link: "https://ahmadblog.vercel.app/post/diving-into-backend-development-essential-technologies-and-concepts",
   },
   {
     title: "Front-End Development",
     description:
-      "Elevate your coding game with our 30-day program. Daily challenges and exercises to boost your skills fast!",
+      "Frontend technologies in MERN for building modern web experiences.",
     image: blog2,
     date: "9 Sep, 2024",
-    category: "Software Development",
     author: "Nishar Ahmad",
-    link: "https://ahmadblog-backend.onrender.com/post/-frontend-technology-in-mern-building-modern-web-experiences",
+    link: "https://ahmadblog.vercel.app/post/-frontend-technology-in-mern-building-modern-web-experiences",
   },
-
   {
     title: "Flutter Development",
-    description:
-      "Building a Content-Driven Mobile App with Flutter: A Comprehensive Guide.",
+    description: "Building a content-driven mobile app with Flutter.",
     image: blog3,
     date: "9 Sep, 2024",
-    category: "Flutter Development",
     author: "Nishar Ahmad",
-    link: "https://ahmadblog-backend.onrender.com/post/building-a-content-driven-mobile-app-with-flutter-a-comprehensive-guide",
+    link: "https://ahmadblog.vercel.app/post/building-a-content-driven-mobile-app-with-flutter-a-comprehensive-guide",
   },
   {
-    title: "MERN STACK",
-    description: "Understanding the MERN Stack: A Comprehensive Guide.",
+    title: "MERN Stack",
+    description: "Understanding the MERN Stack: A comprehensive guide.",
     image: blog1,
     date: "9 Sep, 2024",
-    category: "Software Development",
     author: "Nishar Ahmad",
-    link: "https://ahmadblog-backend.onrender.com/post/understanding-the-mern-stack-a-comprehensive-guide",
+    link: "https://ahmadblog.vercel.app/post/understanding-the-mern-stack-a-comprehensive-guide",
+  },
+  {
+    title: "From Development to Production",
+    description: "Building & deploying a full-stack MERN blog platform.",
+    image: blog5,
+    date: "14 Dec, 2025",
+    author: "Nishar Ahmad",
+    link: "https://ahmadblog.vercel.app/post/building--deploying-a-full-stack-mern-blog-platform-from-development-to-production",
   },
 ];
 
-
 const Blog = () => {
-
-  const handleButtonClick = (link) => {
-    window.location.href = link;
-  };
-
   return (
-    <section className="blog">
-      <div className="container">
-        <h2>Blogs</h2>
+    <section className="bg-[#0d0d0d] py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#66fcf1] mb-14">
+          Blogs
+        </h2>
+
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          centeredSlides
+          loop
+          speed={700}
           navigation
           pagination={{ clickable: true }}
-          spaceBetween={20}
-          slidesPerView={1}
-          centeredSlides={true}
-          loop={true}
+          autoplay={{
+            delay: 1000, // ✅ 10 seconds
+            disableOnInteraction: false, // keep autoplay after manual swipe
+            pauseOnMouseEnter: true, // pause on hover (desktop)
+          }}
           breakpoints={{
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          onSlideChange={(swiper) => {
-            const allSlides = document.querySelectorAll(".swiper-slide");
-            allSlides.forEach((slide) => {
-              slide.classList.remove("swiper-slide-active-scale");
-            });
-            const activeSlide = swiper.slides[swiper.activeIndex];
-            if (activeSlide)
-              activeSlide.classList.add("swiper-slide-active-scale");
-          }}
+          className="pb-14"
         >
           {blogs.map((blog, index) => (
             <SwiperSlide key={index}>
-              <div className="blog-item">
-                <img src={blog.image} alt={blog.title} className="blog-image" />
-                <div className="blog-details">
-                  <h3>{blog.title}</h3>
-                  <p>{blog.description}</p>
-                  <div className="blog-meta">
-                    <p>
-                      Published {blog.date}
-                    </p>
-                    <p>By {blog.author}</p>
+              <div
+                className="
+                  group
+                  bg-[#1e1e1e]
+                  rounded-2xl
+                  overflow-hidden
+                  shadow-lg
+                  transition-all
+                  duration-500
+                  hover:scale-[1.03]
+                "
+              >
+                {/* IMAGE */}
+                <div className="relative overflow-hidden">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="
+                      w-full h-[220px]
+                      object-cover
+                      transition-transform
+                      duration-500
+                      group-hover:scale-110
+                    "
+                  />
+                </div>
+
+                {/* CONTENT */}
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {blog.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+                    {blog.description}
+                  </p>
+
+                  <div className="text-xs text-gray-500 mb-5 flex justify-between">
+                    <span>{blog.date}</span>
+                    <span>{blog.author}</span>
                   </div>
-                  <button
-                    className="blog-btn"
-                    onClick={() => handleButtonClick(blog.link)}
+
+                  <a
+                    href={blog.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      inline-block
+                      px-5 py-2
+                      rounded-full
+                      border border-[#66fcf1]
+                      text-[#66fcf1]
+                      text-sm font-medium
+                      hover:bg-[#66fcf1]
+                      hover:text-[#141414]
+                      transition-all
+                    "
                   >
-                    Details
-                  </button>
+                    Read More
+                  </a>
                 </div>
               </div>
             </SwiperSlide>

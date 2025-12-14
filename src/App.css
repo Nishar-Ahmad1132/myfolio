@@ -1,34 +1,53 @@
+/* Reset */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+/* Base layout */
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
   overflow-x: hidden;
-  /* background: linear-gradient(135deg, #000000, #222222); */
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: rgb(33, 32, 32);
+  color: white;
 }
 
-html, body, #root {
-  height: 100%;
+/* App wrapper */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* This pushes footer to bottom */
+.main-content {
+  flex: 1;
+}
+
+/* Container */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-h1, h2, h3, h4, p {
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+p {
   margin: 0.5rem 0;
 }
 
-a{
+a {
   text-decoration: none;
   color: rgb(197, 76, 249);
 }
@@ -41,58 +60,67 @@ button {
   cursor: pointer;
 }
 
-header, section, footer {
+/* Global section padding */
+header,
+section,
+footer {
   padding: 3rem 0;
 }
 
-/* Flexbox Layout for Full Height Sections */
-.header, .about, .education, .skills, .services, .projects, .pricing, .blog, .testimonials, .contact {
+/* ------------------------------- */
+/* ❌ REMOVE vertical centering */
+/* ------------------------------- */
+.about,
+.education,
+.skills,
+.services,
+.projects,
+.pricing,
+.blog,
+.testimonials,
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ------------------------------- */
+/* ✅ ONLY HERO / HOME CENTERED */
+/* ------------------------------- */
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* min-height: 80vh; */
+  min-height: 80vh;
 }
 
-/* Grid Layout */
-.pricing-grid{
+/* Grid examples */
+.pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-}
-
-/* Flexbox Layout to Keep Footer at Bottom */
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main-content {
-  flex: 1; 
 }
 
 /* Footer */
 footer {
   background-color: #141414;
   color: white;
-  padding: 1rem;
+  padding: 1.5rem 0;
   text-align: center;
-  margin-top: auto;
   width: 100%;
+  margin-top: auto;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .header-content {
     text-align: center;
   }
 
-  .header-image, .projects-item, .blog-item {
+  .header-image,
+  .projects-item,
+  .blog-item {
     margin: 1rem auto;
   }
-
-  /* .skills-grid, .services-grid, .projects-grid, .pricing-grid, .blog-grid {
-    grid-template-columns: 1fr;
-  } */
 }

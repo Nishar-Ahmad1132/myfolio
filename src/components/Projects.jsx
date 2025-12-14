@@ -1,52 +1,55 @@
 /* eslint-disable no-unused-vars */
-
-
 import React, { useState } from "react";
-import { FaGithub } from "react-icons/fa";
-import "./Projects.css";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+
 import proj1 from "../assets/webD1.jpg";
 import proj2 from "../assets/webD2.jpg";
 import proj4 from "../assets/appD.jpg";
 import lockboot from "../assets/lockboot.png";
-
+import ai_career from "../assets/ai_career.png";
 
 const projects = [
+  {
+    name: "AI Career Matcher",
+    image: ai_career,
+    description: "AI Career Matcher– AI/ML Job Recommendation System.",
+    category: "Web Development",
+    date: "10 Sep, 2025",
+    creator: "Nishar Ahmad",
+    link: "https://github.com/Nishar-Ahmad1132/ai_career_matcher",
+  },
   {
     name: "Portfolio Website",
     image: proj1,
     description: "Built a portfolio website to showcase projects and blogs.",
     category: "Web Development",
-    rating: "4.7/5",
     date: "05 March, 2024",
     creator: "Nishar Ahmad",
-    link: "https://github.com/Nishar-Ahmad1132/personal-portfolio",
+    link: "https://nisharahmad.vercel.app/",
   },
   {
     name: "Ahmad's Blog",
     image: proj2,
     description: "Developed a full-featured blog website using the MERN stack.",
     category: "Web Development",
-    rating: "4.5/5",
     date: "08 June, 2024",
     creator: "Nishar Ahmad",
-    link: "https://github.com/Nishar-Ahmad1132/ahmad-blog",
+    link: "https://ahmadblog.vercel.app/",
   },
   {
     name: "Chatbot App",
     image: proj4,
     description: "Flutter-based chatbot app using the OpenAI API.",
     category: "App",
-    rating: "3.5/5",
     date: "29 May, 2024",
     creator: "Nishar Ahmad",
-    link: "https://github.com/Nishar-Ahmad1132/bot_ai",
+    link: "https://github.com/Nishar-Ahmad1132/chatbot",
   },
   {
-    name: "lockbot",
+    name: "Lockboot",
     image: lockboot,
     description: "An innovative way to invest in digital media.",
     category: "App",
-    rating: "4.5/5",
     date: "13 May, 2024",
     creator: "Nishar Ahmad",
     link: "https://github.com/Nishar-Ahmad1132/lockboot",
@@ -54,24 +57,15 @@ const projects = [
   {
     name: "Expense Tracker",
     image: proj4,
-    description: "Track daily expenses with a good UI/UX experience.",
+    description: "Track daily expenses with a clean UI/UX experience.",
     category: "App",
-    rating: "4.1/5",
     date: "10 July, 2024",
     creator: "Nishar Ahmad",
     link: "https://github.com/Nishar-Ahmad1132/expenses_tracker",
   },
-  {
-    name: "WnatsChat App",
-    image: proj4,
-    description: "Mobile app allowing users to connect and share posts.",
-    category: "App",
-    rating: "4.3/5",
-    date: "15 June, 2024",
-    creator: "Nishar Ahmad",
-    link: "",
-  },
 ];
+
+const tabs = ["Latest Projects", "Apps Projects", "Web Projects"];
 
 const Projects = () => {
   const [selectedTab, setSelectedTab] = useState("Latest Projects");
@@ -85,60 +79,97 @@ const Projects = () => {
   });
 
   return (
-    <section className="projects">
-      <div className="container">
-        <h2>My Projects</h2>
+    <section className="bg-[#1e1e1e] py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Heading */}
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#66fcf1] mb-10">
+          My Projects
+        </h2>
+
         {/* Tabs */}
-        <div className="tabs">
-          {["Latest Projects", "Apps Projects", "Web Projects"].map(
-            (tab, index) => (
-              <button
-                key={index}
-                className={`tab-button ${selectedTab === tab ? "active" : ""}`}
-                onClick={() => setSelectedTab(tab)}
-              >
-                {tab}
-              </button>
-            )
-          )}
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setSelectedTab(tab)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all
+                ${
+                  selectedTab === tab
+                    ? "bg-[#66fcf1] text-[#1e1e2e]"
+                    : "text-white hover:text-[#66fcf1]"
+                }
+              `}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
 
-        {/* Project Cards */}
-        <div className="projects-grid">
+        {/* Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
-            <div className="project-item" key={index}>
-              <img src={project.image} alt={project.name} />
-              <div className="project-info">
-                <div className="project-category">{project.category}</div>
-              </div>
-              <div className="project-name">{project.name}</div>
-              <div className="project-footer">
-                {/* <div className="project-rating">⭐{project.rating}</div>
-                <div className="project-date">{project.date}</div> */}
-              </div>
-              <div className="project-overlay">
-                <div className="project-details">
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                  <div className="source-code">
-                    {project.link ? (
-                      <>
-                        <p>Click below to see the source code of the project.</p>
-                        <a
-                          className="view-more"
-                          href={project.link}
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          <FaGithub size={30} />
-                        </a>
-                      </>
-                    ) : (
-                      <p>No source code available.</p>
-                    )}
-                  </div>
-                  <p>Created by: {project.creator}</p>
+            <div
+              key={index}
+              className="group relative rounded-2xl overflow-hidden shadow-lg bg-[#2a2a3c]"
+            >
+              {/* Image */}
+              <img
+                src={project.image}
+                alt={project.name}
+                className="w-full h-[260px] object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+
+              {/* Category badge */}
+              <span className="absolute top-4 left-4 bg-[#66fcf1] text-[#1e1e2e] text-xs px-3 py-1 rounded-full">
+                {project.category}
+              </span>
+
+              {/* Overlay */}
+              <div
+                className="absolute inset-0 bg-black/70 backdrop-blur-sm
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                flex items-center justify-center"
+              >
+                <div className="text-center px-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    {project.name}
+                  </h3>
+                  <p className="text-sm text-gray-300 mb-4">
+                    {project.description}
+                  </p>
+
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-[#66fcf1] hover:scale-110 transition-transform"
+                    >
+                      {project.link.includes("github.com") ? (
+                        <>
+                          <FaGithub size={26} />
+                          <span className="text-sm">Source Code</span>
+                        </>
+                      ) : (
+                        <>
+                          <FaExternalLinkAlt size={22} />
+                          <span className="text-sm">Live Demo</span>
+                        </>
+                      )}
+                    </a>
+                  )}
+
+                  <p className="mt-4 text-xs text-gray-400">
+                    Created by {project.creator}
+                  </p>
                 </div>
+              </div>
+
+              {/* Name footer (visible without hover) */}
+              <div className="p-4 text-center">
+                <h4 className="text-sm font-medium text-white">
+                  {project.name}
+                </h4>
               </div>
             </div>
           ))}

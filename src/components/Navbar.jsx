@@ -47,14 +47,14 @@ const Navbar = () => {
             Projects
           </Link>
         </li>
-        {/* <li>
+        <li>
           <Link
             to="/education"
             className={location.pathname === "/education" ? "active-tab" : ""}
           >
             Education
           </Link>
-        </li> */}
+        </li>
         {/* <li>
           <Link
             to="/services"
@@ -92,12 +92,12 @@ const Navbar = () => {
       </ul>
 
       <a
-        href="https://ahmadblog-backend.onrender.com/"
+        href="https://ahmadblog.vercel.app/"
         className="blog-web-btn"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i className="fas fa-globe"></i>  Visit Blog
+        <i className="fas fa-globe"></i> Visit Blog
       </a>
 
       <button
